@@ -34,7 +34,7 @@
     "selfsigned": "^1.10.4"
   },
   "engines": {
-    "node": ">= 0.8.x"
+    "node": ">= 0.6.x"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
