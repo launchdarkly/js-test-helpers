@@ -22,6 +22,10 @@ In regular Node.js code:
 const { TestHttpServer, promisify } = require("launchdarkly-js-test-helpers");
 ```
 
+## Build helpers
+
+The `scripts` directory contains tools that can be helpful in CI; see [`scripts/README.md`](scripts/README.md).
+
 ## Contributing
 
 We encourage pull requests and other contributions from the community. Check out our [contributing guidelines](CONTRIBUTING.md) for instructions on how to contribute to this SDK.
