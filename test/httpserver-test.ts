@@ -15,10 +15,19 @@ import {
 
 import * as http from "http";
 import * as https from "https";
+import { parse } from "url";
+
+// doGet and doPost allow this test code to use simpler semantics that aren't supported by Node 6
+
+async function doGet(url: string, options?: https.RequestOptions): Promise<http.IncomingMessage> {
+  const reqProps = parse(url) as http.RequestOptions;
+  return promisifySingle(http.get)({ ...reqProps, ...options });
+}
 
 async function doPost(url: string, headers: http.OutgoingHttpHeaders, body: string): Promise<http.IncomingMessage> {
   const reqPromiseAndCallback = new PromiseAndValueCallback<http.IncomingMessage>();
-  const req = http.request(url, { method: "post", headers }, reqPromiseAndCallback.callback);
+  const reqProps = parse(url) as http.RequestOptions;
+  const req = http.request({ ...reqProps, method: "post", headers }, reqPromiseAndCallback.callback);
   req.write(body);
   req.end();
   return reqPromiseAndCallback.promise;
@@ -54,10 +63,10 @@ describe("TestHttpServer", () => {
       server.forMethodAndPath("get", "/path2", TestHttpHandlers.respond(201));
       server.forMethodAndPath("post", "/path1", TestHttpHandlers.respond(202));
 
-      const res1 = await promisifySingle(http.get)(server.url + "/path1");
+      const res1 = await doGet(server.url + "/path1");
       expect(res1.statusCode).toBe(200);
 
-      const res2 = await promisifySingle(http.get)(server.url + "/path2");
+      const res2 = await doGet(server.url + "/path2");
       expect(res2.statusCode).toBe(201);
 
       const res3 = await doPost(server.url + "/path1", {}, "hi");
@@ -69,7 +78,7 @@ describe("TestHttpServer", () => {
       server.byDefault(TestHttpHandlers.respond(200));
       const headers = { "my-header": "x" };
 
-      const res = await promisifySingle(http.get)(server.url + "/thing", { headers });
+      const res = await doGet(server.url + "/thing", { headers });
       expect(res.statusCode).toBe(200);
 
       const req = await server.nextRequest();
@@ -108,7 +117,7 @@ describe("TestHttpHandlers", () => {
     withServer(async (server) => {
       server.byDefault(TestHttpHandlers.respond(400, {}, "hi"));
 
-      const res = await promisifySingle(http.get)(server.url);
+      const res = await doGet(server.url);
       expect(res.statusCode).toBe(400);
       expect(await readAllStream(res)).toEqual("hi");
     }));
@@ -117,7 +126,7 @@ describe("TestHttpHandlers", () => {
     withServer(async (server) => {
       server.byDefault(TestHttpHandlers.respondJson({ thing: "stuff" }));
 
-      const res = await promisifySingle(http.get)(server.url);
+      const res = await doGet(server.url);
       expect(res.statusCode).toBe(200);
       expect(res.headers).toMatchObject({ "content-type": "application/json" });
     }));
@@ -127,7 +136,7 @@ describe("TestHttpHandlers", () => {
       const chunkQueue = new AsyncQueue<string>();
       server.byDefault(TestHttpHandlers.chunkedStream(200, { "content-type": "text/plain "}, chunkQueue));
 
-      const req = promisifySingle(http.get)(server.url);
+      const req = doGet(server.url);
       chunkQueue.add("thing");
       chunkQueue.add("+stuff");
       chunkQueue.close();
@@ -142,7 +151,7 @@ describe("TestHttpHandlers", () => {
       const eventQueue = new AsyncQueue<SSEItem>();
       server.byDefault(TestHttpHandlers.sseStream(eventQueue));
 
-      const req = promisifySingle(http.get)(server.url);
+      const req = doGet(server.url);
       eventQueue.add({ comment: "hi" });
       eventQueue.add({ type: "put", data: "stuff" });
       eventQueue.close();
@@ -167,7 +176,8 @@ describe("secure server", () => {
   it("provides self-signed certificate", async () =>
     withSecureServer(async (server) => {
       server.byDefault(TestHttpHandlers.respond(200));
-      const res = await promisifySingle(https.get)(server.url, { ca: server.certificate });
+      const reqProps = parse(server.url) as https.RequestOptions;
+      const res = await promisifySingle(https.get)({ ...reqProps, ca: server.certificate });
       expect(res.statusCode).toBe(200);
     }));
 });
