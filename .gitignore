@@ -1,0 +1,9 @@
+junit.xml
+dist/
+node_modules/
+npm-debug.log
+docs/build/
+test-types.js
+src/*.js
+test/*.js
+.vscode/
