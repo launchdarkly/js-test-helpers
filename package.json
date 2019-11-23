@@ -1,0 +1,58 @@
+{
+  "name": "launchdarkly-js-test-helpers",
+  "version": "0.0.1",
+  "description": "LaunchDarkly JavaScript test utilities",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "jest --ci --forceExit test",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/launchdarkly/js-test-helpers.git"
+  },
+  "keywords": [
+    "launchdarkly",
+    "testing"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/launchdarkly/js-test-helpers/issues"
+  },
+  "homepage": "https://github.com/launchdarkly/js-test-helpers",
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/runtime": "^7.6.3",
+    "@types/node": "^12.12.11",
+    "selfsigned": "^1.10.4"
+  },
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "babel-jest": "^24.7.1",
+    "eslint": "^6.5.1",
+    "eslint-formatter-pretty": "^2.1.1",
+    "jest": "^24.7.1",
+    "jest-junit": "^6.3.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.0.1"
+  },
+  "jest": {
+    "rootDir": ".",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*-test.js"
+    ],
+    "testResultsProcessor": "jest-junit"
+  }
+}
