@@ -1,0 +1,10 @@
+publications:
+  - url: https://www.npmjs.com/package/launchdarkly-js-test-helpers
+    description: npm
+
+template:
+  name: npm
+
+documentation:
+  githubPages: true
+  title: launchdarkly-js-test-helpers
