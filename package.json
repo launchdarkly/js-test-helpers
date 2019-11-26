@@ -1,6 +1,6 @@
 {
   "name": "launchdarkly-js-test-helpers",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "LaunchDarkly JavaScript test utilities",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
