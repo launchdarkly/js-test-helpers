@@ -77,6 +77,9 @@ export class TestHttpServer {
   /**
    * Creates and starts a [[TestHttpServer]] instance.
    *
+   * Note: in a non-TypeScript project that uses a transpiler, you may not be able to access this
+   * static method; if so, use the same method in [[TestHttpServers]] instead.
+   *
    * @param options
    *   Any desired [[http.ServerOptions]].
    */
@@ -88,6 +91,9 @@ export class TestHttpServer {
 
   /**
    * Creates and starts a [[TestHttpServer]] instance that uses HTTPS, with a self-signed certificate.
+   *
+   * Note: in a non-TypeScript project that uses a transpiler, you may not be able to access this
+   * static method; if so, use the same method in [[TestHttpServers]] instead.
    *
    * @param options
    *   Any desired [[https.ServerOptions]] other than the certificate.
@@ -268,6 +274,36 @@ export class TestHttpServer {
         }
       }
     }
+  }
+}
+
+/**
+ * Abstract class that provides the same static factory methods as [[TestHttpServer]].
+ * 
+ * This is provided only because some JavaScript projects may have difficulty importing a class that
+ * has both a constructor and static methods (transpilers may copy the import in a way that preserves
+ * only the constructor function and not the static members). `TestHttpServers.start()` is exactly
+ * equivalent to `TestHttpServer.start()`.
+ */
+export abstract class TestHttpServers {
+  /**
+   * Creates and starts a [[TestHttpServer]] instance.
+   *
+   * @param options
+   *   Any desired [[http.ServerOptions]].
+   */
+  public static async start(options?: http.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.start(options);
+  }
+
+  /**
+   * Creates and starts a [[TestHttpServer]] instance that uses HTTPS, with a self-signed certificate.
+   *
+   * @param options
+   *   Any desired [[https.ServerOptions]] other than the certificate.
+   */
+  public static async startSecure(options?: https.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecure(options);
   }
 }
 
