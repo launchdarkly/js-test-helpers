@@ -279,7 +279,7 @@ export class TestHttpServer {
 
 /**
  * Abstract class that provides the same static factory methods as [[TestHttpServer]].
- * 
+ *
  * This is provided only because some JavaScript projects may have difficulty importing a class that
  * has both a constructor and static methods (transpilers may copy the import in a way that preserves
  * only the constructor function and not the static members). `TestHttpServers.start()` is exactly
