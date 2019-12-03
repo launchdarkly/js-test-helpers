@@ -2,6 +2,7 @@ import {
   SSEItem,
   TestHttpHandlers,
   TestHttpServer,
+  TestHttpServers,
 } from "../src";
 
 import {
@@ -102,6 +103,9 @@ describe("TestHttpServer", () => {
       expect(req.path).toEqual("/thing");
       expect(req.body).toEqual("this is the content");
     }));
+
+  it("can be created via TestHttpServers alias", async () =>
+    withCloseable(async () => await TestHttpServers.start(), async (server) => undefined));
 });
 
 describe("TestHttpHandlers", () => {
@@ -180,4 +184,7 @@ describe("secure server", () => {
       const res = await promisifySingle(https.get)({ ...reqProps, ca: server.certificate });
       expect(res.statusCode).toBe(200);
     }));
+
+  it("can be created via TestHttpServers alias", async () =>
+    withCloseable(async () => await TestHttpServers.startSecure(), async (server) => undefined));
 });
