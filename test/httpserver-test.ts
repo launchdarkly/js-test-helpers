@@ -16,13 +16,18 @@ import {
 
 import * as http from "http";
 import * as https from "https";
+import * as tunnel from "tunnel";
 import { parse } from "url";
 
 // doGet and doPost allow this test code to use simpler semantics that aren't supported by Node 6
 
 async function doGet(url: string, options?: https.RequestOptions): Promise<http.IncomingMessage> {
-  const reqProps = parse(url) as http.RequestOptions;
-  return promisifySingle(http.get)({ ...reqProps, ...options });
+  const reqProps = parse(url);
+  if (reqProps.protocol === "https:") {
+    return promisifySingle(https.get)({ ...reqProps, ...options });
+  } else {
+    return promisifySingle(http.get)({ ...reqProps, ...options });
+  }
 }
 
 async function doPost(url: string, headers: http.OutgoingHttpHeaders, body: string): Promise<http.IncomingMessage> {
@@ -180,11 +185,76 @@ describe("secure server", () => {
   it("provides self-signed certificate", async () =>
     withSecureServer(async (server) => {
       server.byDefault(TestHttpHandlers.respond(200));
-      const reqProps = parse(server.url) as https.RequestOptions;
-      const res = await promisifySingle(https.get)({ ...reqProps, ca: server.certificate });
+      const res = await doGet(server.url, { ca: server.certificate });
       expect(res.statusCode).toBe(200);
     }));
 
   it("can be created via TestHttpServers alias", async () =>
     withCloseable(async () => await TestHttpServers.startSecure(), async (server) => undefined));
+});
+
+describe("proxy server", () => {
+  it("proxies HTTP requests when tunneling HTTP over HTTP", async () => {
+    // Note that the current implementation does not support tunneling HTTPS over HTTP, so the target
+    // server must not be secure.
+    await withServer(async (targetServer) => {
+      targetServer.byDefault(TestHttpHandlers.respond(201));
+
+      const proxyServer = await TestHttpServers.startProxy();
+      await withCloseable(proxyServer, async () => {
+        const agent = tunnel.httpOverHttp({ proxy: { host: proxyServer.hostname, port: proxyServer.port }});
+        const res = await doGet(targetServer.url, { agent });
+        expect(res.statusCode).toBe(201);
+
+        const preq = await proxyServer.nextRequest();
+        expect(preq.path).toEqual(targetServer.url);
+      });
+    });
+  });
+
+  it("proxies HTTP requests without tunneling", async () => {
+    await withServer(async (targetServer) => {
+      targetServer.byDefault(TestHttpHandlers.respond(201));
+
+      const proxyServer = await TestHttpServers.startProxy();
+      await withCloseable(proxyServer, async () => {
+        const options = {
+          headers: { Host: targetServer.hostname },
+          host: proxyServer.hostname + ":" + proxyServer.port,
+          hostname: proxyServer.hostname,
+          path: targetServer.url,
+          port: proxyServer.port,
+          protocol: "http:",
+        };
+
+        const res = await promisifySingle(http.get)(options);
+        expect(res.statusCode).toBe(201);
+
+        const preq = await proxyServer.nextRequest();
+        expect(preq.path).toEqual(targetServer.url);
+      });
+    });
+  });
+});
+
+describe("secure proxy server", () => {
+  it("proxies HTTP request when tunneling HTTP over HTTPS", async () => {
+    await withServer(async (targetServer) => {
+      // Note that the current implementation does not support tunneling HTTPS over HTTPS, so the target
+      // server must not be secure.
+      targetServer.byDefault(TestHttpHandlers.respond(201));
+
+      const proxyServer = await TestHttpServers.startSecureProxy();
+      await withCloseable(proxyServer, async () => {
+        const agent = tunnel.httpOverHttps({
+          proxy: { host: proxyServer.hostname, port: proxyServer.port, ca: proxyServer.certificate },
+        });
+        const res = await doGet(targetServer.url, { agent });
+        expect(res.statusCode).toBe(201);
+
+        const preq = await proxyServer.nextRequest();
+        expect(preq.path).toEqual(targetServer.url);
+      });
+    });
+  });
 });

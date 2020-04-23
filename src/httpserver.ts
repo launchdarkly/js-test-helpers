@@ -1,6 +1,8 @@
 import * as http from "http";
 import * as https from "https";
+import * as net from "net";
 import * as selfsigned from "selfsigned";
+import * as url from "url";
 
 import { AsyncQueue, readAllStream } from "./async";
 
@@ -84,7 +86,7 @@ export class TestHttpServer {
    *   Any desired [[http.ServerOptions]].
    */
   public static async start(options?: http.ServerOptions): Promise<TestHttpServer> {
-    const server = new TestHttpServer(false, options);
+    const server = new TestHttpServer(false, false, options);
     await server.startInstance();
     return server;
   }
@@ -99,6 +101,47 @@ export class TestHttpServer {
    *   Any desired [[https.ServerOptions]] other than the certificate.
    */
   public static async startSecure(options?: https.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureInternal(options, false);
+  }
+
+  /**
+   * Creates and starts a [[TestHttpServer]] instance that acts as an HTTP proxy.
+   *
+   * The server will only act as a proxy and will ignore any request handlers that you specify, but
+   * it still has the same properties as a regular [[TestHttpServer]], behaves the same in terms of
+   * dynamically choosing a port, and allows you to inspect received requests. The received
+   * requests will have a `path` property equal to either the full request URL or, if using a
+   * tunneling agent, the request URL minus the path.
+   *
+   * Note that the current implementation does not support proxying a request to an HTTPS URL.
+   *
+   * @param options
+   *   Any desired [[http.ServerOptions]].
+   */
+  public static async startProxy(options?: http.ServerOptions): Promise<TestHttpServer> {
+    const server = new TestHttpServer(false, true, options);
+    await server.startInstance();
+    return server;
+  }
+
+  /**
+   * Creates and starts a [[TestHttpServer]] instance that acts as a secure HTTP proxy with a
+   * self-signed certificate.
+   *
+   * This is the same as [[TestHttpServer.startProxy]], but the proxy server itself is secure.
+   * Note that the current implementation does not support proxying a request to an HTTPS URL
+   * (that is, when the target server is itself secure).
+   *
+   * @param options
+   *   Any desired [[https.ServerOptions]] other than the certificate.
+   */
+  public static async startSecureProxy(options?: https.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureInternal(options, true);
+  }
+
+  private static nextPort: number = 8000;
+
+  private static async startSecureInternal(options: https.ServerOptions, proxy: boolean): Promise<TestHttpServer> {
     const certAttrs = [{ name: "commonName", value: "localhost" }];
     const certOptions = {
       // This part is based on code within the selfsigned package
@@ -110,26 +153,26 @@ export class TestHttpServer {
       ],
     };
     const certData = await selfsigned.generate(certAttrs, certOptions);
-    const server = new TestHttpServer(true,
+    const server = new TestHttpServer(true, proxy,
       { ...options, key: certData.private, cert: certData.cert, ca: certData.public });
     await server.startInstance();
     return server;
-  }
-
-  private static nextPort: number = 8000;
-
-  private static async preprocessRequest(req: http.IncomingMessage): Promise<TestHttpRequest> {
-    const method = req.method.toLowerCase();
-    const body = (method === "post" || method === "put" || method === "report") ?
-      await readAllStream(req) :
-      undefined;
-    return { method, body, path: req.url, headers: req.headers as TestHttpHeaders };
   }
 
   /**
    * The server's base URL ("http://localhost:8000").
    */
   public url: string;
+
+  /**
+   * The server's hostname (always "localhost" in this implementation).
+   */
+  public hostname: string;
+
+  /**
+   * The server's port.
+   */
+  public port: number;
 
   /**
    * The server's self-signed certificate, if it is a secure server.
@@ -149,7 +192,7 @@ export class TestHttpServer {
   private secure: boolean;
   private count: number;
 
-  private constructor(secure: boolean, options: (http.ServerOptions | https.ServerOptions)) {
+  private constructor(secure: boolean, proxy: boolean, options: (http.ServerOptions | https.ServerOptions)) {
     this.requests = new  AsyncQueue<TestHttpRequest>();
     this.responses = [];
     this.matchers = [];
@@ -165,19 +208,41 @@ export class TestHttpServer {
     }
 
     this.realServer.on("request", async (req, res) => {
-      this.count++;
-      const reqWrapper = await TestHttpServer.preprocessRequest(req);
-      this.requests.add(reqWrapper);
+      const reqWrapper = await this.preprocessRequest(req);
       this.responses.push(res);
-      for (const matcher of this.matchers) {
-        if (matcher(reqWrapper, res)) {
-          return;
+      if (proxy) {
+        const parsedUrl = url.parse(req.url);
+        const proxyReq = http.request({ ...parsedUrl, method: req.method, headers: req.headers }, (proxyRes) => {
+          res.writeHead(proxyRes.statusCode, proxyRes.headers);
+          proxyRes.pipe(res);
+        });
+        req.pipe(proxyReq);
+      } else {
+        for (const matcher of this.matchers) {
+          if (matcher(reqWrapper, res)) {
+            return;
+          }
+        }
+        if (this.defaultHandler) {
+          this.defaultHandler(reqWrapper, res);
         }
       }
-      if (this.defaultHandler) {
-        this.defaultHandler(req, res);
-      }
     });
+
+    if (proxy) {
+      this.realServer.on("connect", async (req, clientSocket, head) => {
+        const reqWrapper = await this.preprocessRequest(req);
+        reqWrapper.path = "http://" + reqWrapper.path; // so tests can see the actual request URL
+        const targetHost = req.url.substring(0, req.url.indexOf(":"));
+        const targetPort = parseInt(req.url.substring(req.url.indexOf(":") + 1), 10);
+        const serverSocket = net.connect(targetPort, targetHost, () => {
+          clientSocket.write("HTTP/1.1 200 Connection Established\r\n\r\n");
+          serverSocket.write(head);
+          serverSocket.pipe(clientSocket);
+          clientSocket.pipe(serverSocket);
+        });
+      });
+    }
 
     this.defaultHandler = TestHttpHandlers.respond(404);
   }
@@ -259,14 +324,16 @@ export class TestHttpServer {
 
   private async startInstance() {
     while (true) {
-      const port = TestHttpServer.nextPort++;
+      const listenOnPort = TestHttpServer.nextPort++;
       try {
         await new Promise((resolve, reject) => {
-          this.realServer.listen(port);
+          this.realServer.listen(listenOnPort);
           this.realServer.on("error", reject);
           this.realServer.on("listening", resolve);
         });
-        this.url = (this.secure ? "https" : "http") + "://localhost:" + port;
+        this.hostname = "localhost";
+        this.port = listenOnPort;
+        this.url = (this.secure ? "https" : "http") + "://localhost:" + listenOnPort;
         break;
       } catch (err) {
         if (!err.message.match(/EADDRINUSE/)) {
@@ -274,6 +341,17 @@ export class TestHttpServer {
         }
       }
     }
+  }
+
+  private async preprocessRequest(req: http.IncomingMessage): Promise<TestHttpRequest> {
+    const method = req.method.toLowerCase();
+    const body = (method === "post" || method === "put" || method === "report") ?
+      await readAllStream(req) :
+      undefined;
+    const reqWrapper = { method, body, path: req.url, headers: req.headers as TestHttpHeaders };
+    this.count++;
+    this.requests.add(reqWrapper);
+    return reqWrapper;
   }
 }
 
@@ -304,6 +382,39 @@ export abstract class TestHttpServers {
    */
   public static async startSecure(options?: https.ServerOptions): Promise<TestHttpServer> {
     return await TestHttpServer.startSecure(options);
+  }
+
+  /**
+   * Creates and starts a [[TestHttpServer]] instance that acts as an HTTP proxy.
+   *
+   * The server will only act as a proxy and will ignore any request handlers that you specify, but
+   * it still has the same properties as a regular [[TestHttpServer]], behaves the same in terms of
+   * dynamically choosing a port, and allows you to inspect received requests. The received
+   * requests will have a `path` property equal to either the full request URL or, if using a
+   * tunneling agent, the request URL minus the path.
+   *
+   * Note that the current implementation does not support proxying a request to an HTTPS URL.
+   *
+   * @param options
+   *   Any desired [[http.ServerOptions]].
+   */
+  public static async startProxy(options?: http.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.startProxy(options);
+  }
+
+  /**
+   * Creates and starts a [[TestHttpServer]] instance that acts as a secure HTTP proxy with a
+   * self-signed certificate.
+   *
+   * This is the same as [[TestHttpServers.startProxy]], but the proxy server itself is secure.
+   * Note that the current implementation does not support proxying a request to an HTTPS URL
+   * (that is, when the target server is itself secure).
+   *
+   * @param options
+   *   Any desired [[https.ServerOptions]] other than the certificate.
+   */
+  public static async startSecureProxy(options?: https.ServerOptions): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureProxy(options);
   }
 }
 
@@ -477,5 +588,3 @@ export interface SSEItem {
    */
   comment?: string;
 }
-
-// server implementation
