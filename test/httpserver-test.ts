@@ -151,7 +151,7 @@ describe("TestHttpHandlers", () => {
       chunkQueue.close();
       const res = await req;
       expect(res.statusCode).toBe(200);
-      expect(res.headers).toMatchObject({ "content-type": "text/plain "});
+      expect(res.headers).toMatchObject({ "content-type": "text/plain" });
       expect(await readAllStream(res)).toEqual("thing+stuff");
     }));
 
