@@ -143,7 +143,7 @@ describe("TestHttpHandlers", () => {
   it("chunkedStream", async () =>
     withServer(async (server) => {
       const chunkQueue = new AsyncQueue<string>();
-      server.byDefault(TestHttpHandlers.chunkedStream(200, { "content-type": "text/plain "}, chunkQueue));
+      server.byDefault(TestHttpHandlers.chunkedStream(200, { "content-type": "text/plain" }, chunkQueue));
 
       const req = doGet(server.url);
       chunkQueue.add("thing");
