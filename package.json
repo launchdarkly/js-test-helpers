@@ -10,7 +10,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "test": "jest --ci --forceExit test --detectOpenHandles",
+    "test": "jest --ci --forceExit test",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'"
   },
   "repository": {
@@ -37,15 +37,14 @@
     "node": ">= 0.6.x"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "babel-jest": "^25.4.0",
+    "@types/jest": "^24.0.23",
+    "babel-jest": "^24.7.1",
     "eslint": "^6.5.1",
     "eslint-formatter-pretty": "^2.1.1",
-    "jest": "^25.4.0",
-    "jest-junit": "^6.3.0",
-    "ts-jest": "^25.4.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
     "tslint": "^5.20.1",
-    "tunnel": "0.0.6",
+    "tunnel": "^0.0.6",
     "typescript": "^3.8.3"
   },
   "jest": {
