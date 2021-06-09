@@ -151,6 +151,7 @@ export class TestHttpServer {
           name: "subjectAltName",
         },
       ],
+      keySize: 2048,
     };
     const certData = await selfsigned.generate(certAttrs, certOptions);
     const server = new TestHttpServer(true, proxy,
