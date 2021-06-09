@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>launchdarkly-js-test-helpers (1.2.0)</title>
-	<meta name="description" content="Documentation for launchdarkly-js-test-helpers (1.2.0)">
+	<title>launchdarkly-js-test-helpers (1.2.1)</title>
+	<meta name="description" content="Documentation for launchdarkly-js-test-helpers (1.2.1)">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">launchdarkly-js-test-helpers (1.2.0)</a>
+					<a href="index.html" class="title">launchdarkly-js-test-helpers (1.2.1)</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="index.html">Globals</a>
 				</li>
 			</ul>
-			<h1>launchdarkly-js-test-helpers (1.2.0)</h1>
+			<h1>launchdarkly-js-test-helpers (1.2.1)</h1>
 		</div>
 	</div>
 </header>
@@ -116,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">Test<wbr>Http<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L52">httpserver.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L52">httpserver.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -138,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L75">async.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L75">async.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -146,9 +146,10 @@
 									<p>Creates an <a href="classes/asyncqueue.html">AsyncQueue</a> that will receive events. The value of each queue item is the value
 									associated with the event, or an array if there were multiple values.</p>
 								</div>
-								<pre><code>    <span class="hljs-keyword">const</span> receivedErrors = eventSink(client, <span class="hljs-string">"error"</span>);
-    <span class="hljs-keyword">const</span> firstError = <span class="hljs-keyword">await</span> receivedErrors.<span class="hljs-keyword">take</span>();
-    <span class="hljs-keyword">const</span> secondError = <span class="hljs-keyword">await</span> receivedErrors.<span class="hljs-keyword">take</span>();</code></pre>
+								<pre><code>    <span class="hljs-keyword">const</span> receivedErrors = eventSink(client, <span class="hljs-string">&quot;error&quot;</span>);
+    <span class="hljs-keyword">const</span> firstError = <span class="hljs-built_in">await</span> receivedErrors.<span class="hljs-keyword">take</span>();
+    <span class="hljs-keyword">const</span> secondError = <span class="hljs-built_in">await</span> receivedErrors.<span class="hljs-keyword">take</span>();
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -181,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L24">async.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L24">async.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,8 +193,9 @@
 								<p>This is equivalent to <code>util.promisify</code>, but since Node 6 does not provide <code>promisify</code>, it is
 									reimplemented here for projects that need to support Node 6. Note that it currently does not
 								type-check the arguments.</p>
-								<pre><code>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">someFunction</span><span class="hljs-params">(param1, param2, callback)</span> <span class="hljs-comment">{ callback(err, result); }</span>
-    <span class="hljs-title">var</span> <span class="hljs-title">result</span> = <span class="hljs-title">await</span> <span class="hljs-title">promisify</span><span class="hljs-params">(someFunction)</span><span class="hljs-params">(param1, param2)</span>;</span></code></pre>
+								<pre><code>    <span class="hljs-keyword">function</span> some<span class="hljs-constructor">Function(<span class="hljs-params">param1</span>, <span class="hljs-params">param2</span>, <span class="hljs-params">callback</span>)</span> { callback(err, result); }
+    var result = await promisify(someFunction)(param1, param2);
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -257,7 +259,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L48">async.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L48">async.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,8 +267,9 @@
 									<p>Similar to <a href="index.html#promisify">promisify</a>, but for functions whose callback takes only a single parameter <code>(result)</code>
 									instead of the typical Node style <code>(err, result)</code>.</p>
 								</div>
-								<pre><code>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">someFunction</span><span class="hljs-params">(param1, param2, callback)</span> <span class="hljs-comment">{ callback(result); }</span>
-    <span class="hljs-title">var</span> <span class="hljs-title">result</span> = <span class="hljs-title">await</span> <span class="hljs-title">promisify</span><span class="hljs-params">(someFunction)</span><span class="hljs-params">(param1, param2)</span>;</span></code></pre>
+								<pre><code>    <span class="hljs-keyword">function</span> some<span class="hljs-constructor">Function(<span class="hljs-params">param1</span>, <span class="hljs-params">param2</span>, <span class="hljs-params">callback</span>)</span> { callback(result); }
+    var result = await promisify(someFunction)(param1, param2);
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -329,7 +332,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L157">async.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L157">async.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -361,14 +364,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L179">async.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L179">async.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns a Promise based on <code>setTimeout()</code>.</p>
 								</div>
-								<pre><code>    await sleepAsync(<span class="hljs-number">5000</span>)<span class="hljs-comment">;</span></code></pre>
+								<pre><code>    await sleepAsync(<span class="hljs-number">5000</span>)<span class="hljs-comment">;</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -394,7 +398,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/async.ts#L212">async.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/async.ts#L212">async.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -403,7 +407,8 @@
 								</div>
 								<pre><code>    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(<span class="hljs-params">myExistingObject</span>, <span class="hljs-params">async</span> <span class="hljs-params">o</span> =&gt; <span class="hljs-params">doSomething</span>(<span class="hljs-params">o</span>)</span>);
     await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(()</span> =&gt; make<span class="hljs-constructor">NewObject()</span>, async<span class="hljs-function"> <span class="hljs-params">o</span> =&gt;</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Something(<span class="hljs-params">o</span>)</span>);
-    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(<span class="hljs-params">async</span> ()</span> =&gt; await make<span class="hljs-constructor">ObjectAsync()</span>, async<span class="hljs-function"> <span class="hljs-params">o</span> =&gt;</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Something(<span class="hljs-params">o</span>)</span>);</code></pre>
+    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(<span class="hljs-params">async</span> ()</span> =&gt; await make<span class="hljs-constructor">ObjectAsync()</span>, async<span class="hljs-function"> <span class="hljs-params">o</span> =&gt;</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Something(<span class="hljs-params">o</span>)</span>);
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -551,6 +556,5 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

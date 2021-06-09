@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TestHttpHandlers | launchdarkly-js-test-helpers (1.2.0)</title>
-	<meta name="description" content="Documentation for launchdarkly-js-test-helpers (1.2.0)">
+	<title>TestHttpHandlers | launchdarkly-js-test-helpers (1.2.1)</title>
+	<meta name="description" content="Documentation for launchdarkly-js-test-helpers (1.2.1)">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">launchdarkly-js-test-helpers (1.2.0)</a>
+					<a href="../index.html" class="title">launchdarkly-js-test-helpers (1.2.1)</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -110,19 +110,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L492">httpserver.ts:492</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L493">httpserver.ts:493</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a <a href="../index.html#testhttphandler">TestHttpHandler</a> that sends a chunked HTTP response, using an <a href="asyncqueue.html">AsyncQueue</a> as a pipe.</p>
 								</div>
-								<pre><code>    <span class="hljs-keyword">const</span> chunkQueue = <span class="hljs-keyword">new</span> AsyncQueue&lt;<span class="hljs-keyword">string</span>&gt;();
-    server.forMethodAndPath(<span class="hljs-string">"get"</span>, <span class="hljs-string">"/path"</span>,
+								<pre><code>    <span class="hljs-keyword">const</span> chunkQueue = <span class="hljs-keyword">new</span> AsyncQueue&lt;<span class="hljs-built_in">string</span>&gt;();
+    server.forMethodAndPath(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;/path&quot;</span>,
         TestHttpHandlers.chunkedStream(<span class="hljs-number">200</span>, {}, chunkQueue));
-    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">"a chunk of data"</span>);
-    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">"another one"</span>);
-    chunkQueue.close();</code></pre>
+    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;a chunk of data&quot;</span>);
+    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;another one&quot;</span>);
+    chunkQueue.close();
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -161,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L562">httpserver.ts:562</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L563">httpserver.ts:563</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,16 +186,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L443">httpserver.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L444">httpserver.ts:444</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a <a href="../index.html#testhttphandler">TestHttpHandler</a> that sends a simple response.</p>
 								</div>
-								<pre><code>    <span class="hljs-keyword">server</span>.forMethodAndPath(<span class="hljs-string">"get"</span>, <span class="hljs-string">"/path"</span>, TestHttpHandlers.respond(<span class="hljs-number">500</span>));
-    <span class="hljs-keyword">server</span>.forMethodAndPath(<span class="hljs-string">"get"</span>, <span class="hljs-string">"/path"</span>,
-        TestHttpHandlers.respond(<span class="hljs-number">200</span>, { <span class="hljs-string">"content-type"</span>: <span class="hljs-string">"text/plain"</span> }, <span class="hljs-string">"hi"</span>));</code></pre>
+								<pre><code>    <span class="hljs-attribute">server</span>.forMethodAndPath(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;/path&quot;</span>, TestHttpHandlers.respond(<span class="hljs-number">500</span>));
+    <span class="hljs-attribute">server</span>.forMethodAndPath(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;/path&quot;</span>,
+        <span class="hljs-attribute">TestHttpHandlers</span>.respond(<span class="hljs-number">200</span>, { <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;text/plain&quot;</span> }, <span class="hljs-string">&quot;hi&quot;</span>));
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -232,15 +234,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L466">httpserver.ts:466</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L467">httpserver.ts:467</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Shortcut for creating a <a href="../index.html#testhttphandler">TestHttpHandler</a> that sends a 200 response with JSON content.</p>
 								</div>
-								<pre><code>    <span class="hljs-selector-tag">server</span><span class="hljs-selector-class">.forMethodAndPath</span>(<span class="hljs-string">"get"</span>, <span class="hljs-string">"/path"</span>,
-        TestHttpHandlers.respondJson({ <span class="hljs-attribute">message</span>: <span class="hljs-string">"hi"</span> }));</code></pre>
+								<pre><code>    <span class="hljs-selector-tag">server</span><span class="hljs-selector-class">.forMethodAndPath</span>(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;/path&quot;</span>,
+        TestHttpHandlers.respondJson({ <span class="hljs-attribute">message</span>: <span class="hljs-string">&quot;hi&quot;</span> }));
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -266,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/9ad41f1/src/httpserver.ts#L527">httpserver.ts:527</a></li>
+									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/72f7e8a/src/httpserver.ts#L528">httpserver.ts:528</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,11 +278,12 @@
 									an <a href="asyncqueue.html">AsyncQueue</a> as an event pipe.</p>
 								</div>
 								<pre><code>    const eventQueue = <span class="hljs-built_in">new</span> AsyncQueue&lt;SSEItem&gt;();
-    <span class="hljs-keyword">server</span>.forMethodAndPath("get", "/path",
+    <span class="hljs-keyword">server</span>.forMethodAndPath(&quot;get&quot;, &quot;/path&quot;,
         TestHttpHandlers.sseStream(<span class="hljs-number">200</span>, {}, eventQueue));
-    eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">type</span>: "patch", data: { <span class="hljs-type">path</span>: "/flags", key: "x" } });
-    eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">comment</span>: "" });
-    eventQueue.<span class="hljs-keyword">close</span>();</code></pre>
+    eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">type</span>: &quot;patch&quot;, data: { <span class="hljs-type">path</span>: &quot;/flags&quot;, key: &quot;x&quot; } });
+    eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">comment</span>: &quot;&quot; });
+    eventQueue.<span class="hljs-keyword">close</span>();
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -414,6 +418,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
