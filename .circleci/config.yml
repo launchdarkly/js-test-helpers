@@ -5,7 +5,7 @@ workflows:
     jobs:
       - build-test-linux:
           name: latest Node version
-          docker-image: circleci/node:latest
+          docker-image: cimg/node:current
           run-lint: true
       - build-test-linux:
           name: oldest supported Node version
