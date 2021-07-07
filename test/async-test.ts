@@ -1,6 +1,69 @@
 import { EventEmitter } from "events";
 
-import { AsyncQueue, eventSink, promisify, promisifySingle, sleepAsync, withCloseable } from "../src/async";
+import { AsyncMutex, AsyncQueue, eventSink, promisify, promisifySingle, sleepAsync, withCloseable } from "../src/async";
+
+describe("AsyncMutex", () => {
+  it("non-overlapping acquires", async () => {
+    const values = [];
+    const lock = new AsyncMutex();
+
+    await lock.acquire();
+    values.push(1);
+    lock.release();
+
+    await lock.acquire();
+    values.push(2);
+    lock.release();
+
+    expect(values).toEqual([1, 2]);
+  });
+
+  it("overlapping acquires", async () => {
+    const values = new AsyncQueue();
+    const lock = new AsyncMutex();
+
+    const task1 = async () => {
+      await lock.acquire();
+      await sleepAsync(10);
+      values.add(1);
+      lock.release();
+    };
+
+    const task2 = async () => {
+      await lock.acquire();
+      values.add(2);
+      lock.release();
+    };
+
+    task1();
+    task2();
+    expect(await values.take()).toEqual(1);
+    expect(await values.take()).toEqual(2);
+  });
+
+  it("do", async () => {
+    const values = new AsyncQueue();
+    const lock = new AsyncMutex();
+
+    const task1 = async () => {
+      await lock.do(async () => {
+        await sleepAsync(10);
+        values.add(1);
+      });
+    };
+
+    const task2 = async () => {
+      await lock.do(async () => {
+        values.add(2);
+      });
+    };
+
+    task1();
+    task2();
+    expect(await values.take()).toEqual(1);
+    expect(await values.take()).toEqual(2);
+  });
+});
 
 describe("AsyncQueue", () => {
   describe("isEmpty", () => {
