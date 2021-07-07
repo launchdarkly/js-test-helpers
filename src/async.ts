@@ -355,13 +355,17 @@ export class AsyncMutex {
    */
   public release(): void {
     if (this.held) {
-      setTimeout(() => {
-        const pvc = this.awaiters.pop();
-        if (this.awaiters.length === 0) {
-          this.held = false;
-        }
-        pvc.callback(null);
-      }, 0);
+      if (this.awaiters.length) {
+        setTimeout(() => {
+          const pvc = this.awaiters.pop();
+          if (this.awaiters.length === 0) {
+            this.held = false;
+          }
+          pvc.callback(null);
+        }, 0);
+      } else {
+        this.held = false;
+      }
     }
   }
 
