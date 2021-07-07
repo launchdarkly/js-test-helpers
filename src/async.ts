@@ -322,3 +322,64 @@ export class AsyncQueue<T> {
     this.closed = true;
   }
 }
+
+/**
+ * A simple asynchronous lock that can be held by one task at a time.
+ *
+ * This is a naive implementation that is meant for simple cases where two pieces of async test
+ * logic must not be run in parallel because they use the same resource.
+ */
+export class AsyncMutex {
+  private held: boolean;
+  private awaiters: Array<PromiseAndValueCallback<null>>;
+
+  public constructor() {
+    this.held = false;
+    this.awaiters = [];
+  }
+
+  public async acquire(): Promise<void> {
+    if (!this.held) {
+      this.held = true;
+      return Promise.resolve();
+    }
+    const pvc = new PromiseAndValueCallback<null>();
+    this.awaiters.push(pvc);
+    return pvc.promise;
+  }
+
+  /**
+   * Releases the lock. If someone else was waiting on an [[acquire]], they will now acquire it
+   * (first come first served). This simple implementation does not verify that you were the
+   * one who had actually acquired the lock.
+   */
+  public release(): void {
+    if (this.held) {
+      if (this.awaiters.length) {
+        setTimeout(() => {
+          const pvc = this.awaiters.pop();
+          if (this.awaiters.length === 0) {
+            this.held = false;
+          }
+          pvc.callback(null);
+        }, 0);
+      } else {
+        this.held = false;
+      }
+    }
+  }
+
+  /**
+   * Acquires the lock, awaits an asynchronous action, and ensures that the lock is released.
+   * @param action an asynchronous function
+   * @returns the function's return value.
+   */
+  public async do<T>(action: () => Promise<T>): Promise<T> {
+    await this.acquire();
+    try {
+      return await action();
+    } finally {
+      this.release();
+    }
+  }
+}
