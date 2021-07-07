@@ -2,6 +2,10 @@
 
 All notable changes to the package will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.3.0] - 2021-07-07
+### Added:
+- `AsyncMutex`, a simple async lock implementation for test serialization.
+
 ## [1.2.1] - 2021-06-09
 ### Fixed:
 - When generating a self-signed certificate for TLS testing, use a key size of 2048 bits (rather than 1024, the default used by the `selfsigned` module) for maximum cross-platform compatibility.
