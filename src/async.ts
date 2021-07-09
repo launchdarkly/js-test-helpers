@@ -346,7 +346,7 @@ export class AsyncMutex {
   public acquire(): Promise<void> {
     if (this.held === 0) {
       this.held = 1;
-      return;
+      return Promise.resolve();
     }
     const pvc = new PromiseAndValueCallback<null>();
     this.awaiters.push(pvc);
