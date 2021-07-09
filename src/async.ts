@@ -330,21 +330,27 @@ export class AsyncQueue<T> {
  * logic must not be run in parallel because they use the same resource.
  */
 export class AsyncMutex {
-  private held: boolean;
+  private held: number;
   private awaiters: Array<PromiseAndValueCallback<null>>;
 
   public constructor() {
-    this.held = false;
+    this.held = 0;
     this.awaiters = [];
   }
 
-  public async acquire(): Promise<void> {
-    if (!this.held) {
-      this.held = true;
+  /**
+   * Acquires the lock as soon as possible.
+   *
+   * @returns a Promise that resolves once the lock has been acquired
+   */
+  public acquire(): Promise<void> {
+    if (this.held === 0) {
+      this.held = 1;
       return Promise.resolve();
     }
     const pvc = new PromiseAndValueCallback<null>();
     this.awaiters.push(pvc);
+    this.held++;
     return pvc.promise;
   }
 
@@ -354,17 +360,13 @@ export class AsyncMutex {
    * one who had actually acquired the lock.
    */
   public release(): void {
-    if (this.held) {
+    if (this.held !== 0) {
       if (this.awaiters.length) {
-        setTimeout(() => {
-          const pvc = this.awaiters.pop();
-          if (this.awaiters.length === 0) {
-            this.held = false;
-          }
-          pvc.callback(null);
-        }, 0);
+        const pvc = this.awaiters.shift(); // awaiters are in FIFO order
+        this.held--;
+        pvc.callback(null);
       } else {
-        this.held = false;
+        this.held = 0;
       }
     }
   }

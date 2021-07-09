@@ -15,7 +15,11 @@ describe("AsyncMutex", () => {
     values.push(2);
     lock.release();
 
-    expect(values).toEqual([1, 2]);
+    await lock.acquire();
+    values.push(3);
+    lock.release();
+
+    expect(values).toEqual([1, 2, 3]);
   });
 
   it("overlapping acquires", async () => {
@@ -35,10 +39,18 @@ describe("AsyncMutex", () => {
       lock.release();
     };
 
+    const task3 = async () => {
+      await lock.acquire();
+      values.add(3);
+      lock.release();
+    };
+
     task1();
     task2();
+    task3();
     expect(await values.take()).toEqual(1);
     expect(await values.take()).toEqual(2);
+    expect(await values.take()).toEqual(3);
   });
 
   it("do", async () => {
@@ -58,10 +70,18 @@ describe("AsyncMutex", () => {
       });
     };
 
+    const task3 = async () => {
+      await lock.do(async () => {
+        values.add(3);
+      });
+    };
+
     task1();
     task2();
+    task3();
     expect(await values.take()).toEqual(1);
     expect(await values.take()).toEqual(2);
+    expect(await values.take()).toEqual(3);
   });
 });
 
