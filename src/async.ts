@@ -339,8 +339,8 @@ export class AsyncMutex {
   }
 
   /**
-   * Acquires the lock as soon as possible. 
-   * 
+   * Acquires the lock as soon as possible.
+   *
    * @returns a Promise that resolves once the lock has been acquired
    */
   public acquire(): Promise<void> {
