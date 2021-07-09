@@ -338,10 +338,15 @@ export class AsyncMutex {
     this.awaiters = [];
   }
 
-  public async acquire(): Promise<void> {
+  /**
+   * Acquires the lock as soon as possible. 
+   * 
+   * @returns a Promise that resolves once the lock has been acquired
+   */
+  public acquire(): Promise<void> {
     if (this.held === 0) {
       this.held = 1;
-      return Promise.resolve();
+      return;
     }
     const pvc = new PromiseAndValueCallback<null>();
     this.awaiters.push(pvc);
@@ -357,11 +362,9 @@ export class AsyncMutex {
   public release(): void {
     if (this.held !== 0) {
       if (this.awaiters.length) {
-        setTimeout(() => {
-          const pvc = this.awaiters.shift(); // awaiters are in FIFO order
-          this.held--;
-          pvc.callback(null);
-        }, 0);
+        const pvc = this.awaiters.shift(); // awaiters are in FIFO order
+        this.held--;
+        pvc.callback(null);
       } else {
         this.held = 0;
       }
