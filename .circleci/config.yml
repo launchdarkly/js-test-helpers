@@ -9,7 +9,7 @@ workflows:
           run-lint: true
       - build-test-linux:
           name: oldest supported Node version
-          docker-image: circleci/node:6
+          docker-image: cimg/node:12.22
           run-lint: false
 
 jobs:
