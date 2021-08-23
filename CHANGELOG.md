@@ -2,6 +2,11 @@
 
 All notable changes to the package will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.0.0] - 2021-08-23
+### Changed:
+- Minimum Node version is now 12.
+- Updated many dependencies to newer versions.
+
 ## [1.3.1] - 2021-07-16
 ### Fixed:
 - Fixed the implementation of `AsyncMutex` which was not behaving as intended when more than two tasks contended for a lock.
