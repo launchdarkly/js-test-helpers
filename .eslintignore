@@ -1,5 +1,7 @@
 node_modules/
+dist/
 docs/
 test-types.js
 test/
 test.js
+.eslintrc.js
