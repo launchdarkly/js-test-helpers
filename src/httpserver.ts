@@ -515,7 +515,7 @@ export abstract class TestHttpHandlers {
    * ```
    *     const eventQueue = new AsyncQueue<SSEItem>();
    *     server.forMethodAndPath("get", "/path",
-   *         TestHttpHandlers.sseStream(200, {}, eventQueue));
+   *         TestHttpHandlers.sseStream(eventQueue));
    *     eventQueue.add({ type: "patch", data: { path: "/flags", key: "x" } });
    *     eventQueue.add({ comment: "" });
    *     eventQueue.close();
@@ -541,7 +541,9 @@ export abstract class TestHttpHandlers {
           chunk = ":" + item.comment + "\n";
         }
         if (item.data !== undefined) {
-          chunk = "event: " + item.type + "\n";
+          if (item.type) {
+            chunk += "event: " + item.type + "\n";
+          }
           if (item.id) {
             chunk += "id: " + item.id;
           }
