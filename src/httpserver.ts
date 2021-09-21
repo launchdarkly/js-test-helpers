@@ -84,10 +84,12 @@ export class TestHttpServer {
    *
    * @param options
    *   Any desired [[http.ServerOptions]].
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async start(options?: http.ServerOptions): Promise<TestHttpServer> {
-    const server = new TestHttpServer(false, false, options);
-    await server.startInstance();
+  public static async start(options?: http.ServerOptions, port?: number): Promise<TestHttpServer> {
+    const server = new TestHttpServer(false, false, options, port);
+    await server.startInstance(port);
     return server;
   }
 
@@ -99,9 +101,11 @@ export class TestHttpServer {
    *
    * @param options
    *   Any desired [[https.ServerOptions]] other than the certificate.
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startSecure(options?: https.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.startSecureInternal(options, false);
+  public static async startSecure(options?: https.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureInternal(options, false, port);
   }
 
   /**
@@ -117,10 +121,12 @@ export class TestHttpServer {
    *
    * @param options
    *   Any desired [[http.ServerOptions]].
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startProxy(options?: http.ServerOptions): Promise<TestHttpServer> {
-    const server = new TestHttpServer(false, true, options);
-    await server.startInstance();
+  public static async startProxy(options?: http.ServerOptions, port?: number): Promise<TestHttpServer> {
+    const server = new TestHttpServer(false, true, options, port);
+    await server.startInstance(port);
     return server;
   }
 
@@ -134,14 +140,17 @@ export class TestHttpServer {
    *
    * @param options
    *   Any desired [[https.ServerOptions]] other than the certificate.
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startSecureProxy(options?: https.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.startSecureInternal(options, true);
+  public static async startSecureProxy(options?: https.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureInternal(options, true, port);
   }
 
   private static nextPort: number = 8000;
 
-  private static async startSecureInternal(options: https.ServerOptions, proxy: boolean): Promise<TestHttpServer> {
+  private static async startSecureInternal(options: https.ServerOptions,
+    proxy: boolean, port?: number): Promise<TestHttpServer> {
     const certAttrs = [{ name: "commonName", value: "localhost" }];
     const certOptions = {
       // This part is based on code within the selfsigned package
@@ -155,8 +164,9 @@ export class TestHttpServer {
     };
     const certData = await selfsigned.generate(certAttrs, certOptions);
     const server = new TestHttpServer(true, proxy,
-      { ...options, key: certData.private, cert: certData.cert, ca: certData.public });
-    await server.startInstance();
+      { ...options, key: certData.private, cert: certData.cert, ca: certData.public },
+      port);
+    await server.startInstance(port);
     return server;
   }
 
@@ -193,8 +203,9 @@ export class TestHttpServer {
   private secure: boolean;
   private count: number;
 
-  private constructor(secure: boolean, proxy: boolean, options: (http.ServerOptions | https.ServerOptions)) {
-    this.requests = new  AsyncQueue<TestHttpRequest>();
+  private constructor(secure: boolean, proxy: boolean,
+    options: (http.ServerOptions | https.ServerOptions), port?: number) {
+    this.requests = new AsyncQueue<TestHttpRequest>();
     this.responses = [];
     this.matchers = [];
     this.secure = secure;
@@ -323,9 +334,11 @@ export class TestHttpServer {
     });
   }
 
-  private async startInstance() {
+  private async startInstance(port?: number) {
     while (true) {
-      const listenOnPort = TestHttpServer.nextPort++;
+      const listenOnPort = port === null || port === undefined
+        ? TestHttpServer.nextPort++
+        : port;
       try {
         await new Promise((resolve, reject) => {
           this.realServer.listen(listenOnPort);
@@ -370,9 +383,11 @@ export abstract class TestHttpServers {
    *
    * @param options
    *   Any desired [[http.ServerOptions]].
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async start(options?: http.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.start(options);
+  public static async start(options?: http.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.start(options, port);
   }
 
   /**
@@ -380,9 +395,11 @@ export abstract class TestHttpServers {
    *
    * @param options
    *   Any desired [[https.ServerOptions]] other than the certificate.
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startSecure(options?: https.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.startSecure(options);
+  public static async startSecure(options?: https.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecure(options, port);
   }
 
   /**
@@ -398,9 +415,11 @@ export abstract class TestHttpServers {
    *
    * @param options
    *   Any desired [[http.ServerOptions]].
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startProxy(options?: http.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.startProxy(options);
+  public static async startProxy(options?: http.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.startProxy(options, port);
   }
 
   /**
@@ -413,9 +432,11 @@ export abstract class TestHttpServers {
    *
    * @param options
    *   Any desired [[https.ServerOptions]] other than the certificate.
+   * @param port
+   *   A specific port to listen on; if omitted, it picks an available port.
    */
-  public static async startSecureProxy(options?: https.ServerOptions): Promise<TestHttpServer> {
-    return await TestHttpServer.startSecureProxy(options);
+  public static async startSecureProxy(options?: https.ServerOptions, port?: number): Promise<TestHttpServer> {
+    return await TestHttpServer.startSecureProxy(options, port);
   }
 }
 
