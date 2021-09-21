@@ -163,12 +163,13 @@ describe("TestHttpHandlers", () => {
       const req = doGet(server.url);
       eventQueue.add({ comment: "hi" });
       eventQueue.add({ type: "put", data: "stuff" });
+      eventQueue.add({ data: "things" });
       eventQueue.close();
       const res = await req;
       expect(res.statusCode).toBe(200);
       expect(res.headers).toMatchObject({ "content-type": "text/event-stream"});
       const body = await readAllStream(res);
-      expect(body).toEqual(":hi\nevent: put\ndata: stuff\n\n");
+      expect(body).toEqual(":hi\nevent: put\ndata: stuff\n\ndata: things\n\n");
     }));
 
   it("networkError", async () =>
