@@ -1,10 +1,15 @@
+version: 2
+
 publications:
   - url: https://www.npmjs.com/package/launchdarkly-js-test-helpers
     description: npm
 
-template:
-  name: npm
+jobs:
+  - docker:
+      image: node:12-buster
+    template:
+      name: npm
 
 documentation:
-  githubPages: true
-  title: launchdarkly-js-test-helpers
+  gitHubPages: true
+  title: LaunchDarkly JavaScript Test Helpers
