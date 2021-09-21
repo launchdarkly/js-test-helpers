@@ -111,6 +111,17 @@ describe("TestHttpServer", () => {
 
   it("can be created via TestHttpServers alias", async () =>
     withCloseable(async () => await TestHttpServers.start(), async (server) => undefined));
+
+  it("can specify port", async () => {
+    const server1 = await TestHttpServer.start();
+    const url1 = server1.url;
+    await server1.closeAndWait();
+    const port = parseInt(parse(url1).port);
+    const server2 = await TestHttpServer.start({}, port);
+    const url2 = server2.url;
+    await server2.closeAndWait();
+    expect(url2).toEqual(url1);
+  });
 });
 
 describe("TestHttpHandlers", () => {
