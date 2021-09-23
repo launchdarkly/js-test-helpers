@@ -151,13 +151,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<wbr>Http<wbr>Server<span class="tsd-signature-symbol">(</span>secure<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, proxy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">https.ServerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<wbr>Http<wbr>Server<span class="tsd-signature-symbol">(</span>secure<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, proxy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">https.ServerOptions</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L194">httpserver.ts:194</a></li>
+									<li>Defined in httpserver.ts:204</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -170,6 +170,9 @@
 								</li>
 								<li>
 									<h5>options: <span class="tsd-signature-type">ServerOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">https.ServerOptions</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a></h4>
@@ -185,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">certificate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L181">httpserver.ts:181</a></li>
+							<li>Defined in httpserver.ts:191</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -200,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L194">httpserver.ts:194</a></li>
+							<li>Defined in httpserver.ts:204</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Handler<span class="tsd-signature-symbol">:</span> <a href="../index.html#testhttphandler" class="tsd-signature-type">TestHttpHandler</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L192">httpserver.ts:192</a></li>
+							<li>Defined in httpserver.ts:202</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">hostname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L171">httpserver.ts:171</a></li>
+							<li>Defined in httpserver.ts:181</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -235,7 +238,7 @@
 					<div class="tsd-signature tsd-kind-icon">matchers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="../interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L191">httpserver.ts:191</a></li>
+							<li>Defined in httpserver.ts:201</li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +248,7 @@
 					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L176">httpserver.ts:176</a></li>
+							<li>Defined in httpserver.ts:186</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -260,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">real<wbr>Server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L189">httpserver.ts:189</a></li>
+							<li>Defined in httpserver.ts:199</li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +273,7 @@
 					<div class="tsd-signature tsd-kind-icon">requests<span class="tsd-signature-symbol">:</span> <a href="asyncqueue.html" class="tsd-signature-type">AsyncQueue</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L187">httpserver.ts:187</a></li>
+							<li>Defined in httpserver.ts:197</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,7 +289,7 @@
 					<div class="tsd-signature tsd-kind-icon">responses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L190">httpserver.ts:190</a></li>
+							<li>Defined in httpserver.ts:200</li>
 						</ul>
 					</aside>
 				</section>
@@ -296,7 +299,7 @@
 					<div class="tsd-signature tsd-kind-icon">secure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L193">httpserver.ts:193</a></li>
+							<li>Defined in httpserver.ts:203</li>
 						</ul>
 					</aside>
 				</section>
@@ -306,7 +309,7 @@
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L166">httpserver.ts:166</a></li>
+							<li>Defined in httpserver.ts:176</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +324,7 @@
 					<div class="tsd-signature tsd-kind-icon">next<wbr>Port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L142">httpserver.ts:142</a></li>
+							<li>Defined in httpserver.ts:150</li>
 						</ul>
 					</aside>
 				</section>
@@ -338,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L279">httpserver.ts:279</a></li>
+									<li>Defined in httpserver.ts:290</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -370,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L311">httpserver.ts:311</a></li>
+									<li>Defined in httpserver.ts:322</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -392,7 +395,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L318">httpserver.ts:318</a></li>
+									<li>Defined in httpserver.ts:329</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -414,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L297">httpserver.ts:297</a></li>
+									<li>Defined in httpserver.ts:308</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -461,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L257">httpserver.ts:257</a></li>
+									<li>Defined in httpserver.ts:268</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -484,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L347">httpserver.ts:347</a></li>
+									<li>Defined in httpserver.ts:360</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -507,7 +510,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L267">httpserver.ts:267</a></li>
+									<li>Defined in httpserver.ts:278</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -524,15 +527,21 @@
 					<a name="startinstance" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> start<wbr>Instance</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Instance<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Instance<span class="tsd-signature-symbol">(</span>port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L326">httpserver.ts:326</a></li>
+									<li>Defined in httpserver.ts:337</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -541,13 +550,13 @@
 					<a name="start" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> start</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ServerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ServerOptions</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L88">httpserver.ts:88</a></li>
+									<li>Defined in httpserver.ts:90</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -565,6 +574,12 @@
 										<p>  Any desired [[http.ServerOptions]].</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  A specific port to listen on; if omitted, it picks an available port.</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -574,13 +589,13 @@
 					<a name="startproxy" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> start<wbr>Proxy</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ServerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ServerOptions</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L121">httpserver.ts:121</a></li>
+									<li>Defined in httpserver.ts:127</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -602,6 +617,12 @@
 										<p>  Any desired [[http.ServerOptions]].</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  A specific port to listen on; if omitted, it picks an available port.</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -611,13 +632,13 @@
 					<a name="startsecure" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> start<wbr>Secure</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">https.ServerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">https.ServerOptions</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L103">httpserver.ts:103</a></li>
+									<li>Defined in httpserver.ts:107</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -635,6 +656,12 @@
 										<p>  Any desired [[https.ServerOptions]] other than the certificate.</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  A specific port to listen on; if omitted, it picks an available port.</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -644,13 +671,13 @@
 					<a name="startsecureinternal" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> start<wbr>Secure<wbr>Internal</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<wbr>Internal<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">https.ServerOptions</span>, proxy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<wbr>Internal<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">https.ServerOptions</span>, proxy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L144">httpserver.ts:144</a></li>
+									<li>Defined in httpserver.ts:152</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -661,6 +688,9 @@
 								<li>
 									<h5>proxy: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -670,13 +700,13 @@
 					<a name="startsecureproxy" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> start<wbr>Secure<wbr>Proxy</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<wbr>Proxy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">https.ServerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Secure<wbr>Proxy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">https.ServerOptions</span>, port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="testhttpserver.html" class="tsd-signature-type">TestHttpServer</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L138">httpserver.ts:138</a></li>
+									<li>Defined in httpserver.ts:146</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -694,6 +724,12 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">https.ServerOptions</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>  Any desired [[https.ServerOptions]] other than the certificate.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> port: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  A specific port to listen on; if omitted, it picks an available port.</p>
 									</div>
 								</li>
 							</ul>

@@ -110,19 +110,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L493">httpserver.ts:493</a></li>
+									<li>Defined in httpserver.ts:514</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a <a href="../index.html#testhttphandler">TestHttpHandler</a> that sends a chunked HTTP response, using an <a href="asyncqueue.html">AsyncQueue</a> as a pipe.</p>
 								</div>
-								<pre><code>    const chunkQueue = <span class="hljs-built_in">new</span> AsyncQueue&lt;string&gt;();
-    <span class="hljs-keyword">server</span>.forMethodAndPath(&quot;get&quot;, &quot;/path&quot;,
+								<pre><code>    <span class="hljs-keyword">const</span> chunkQueue = <span class="hljs-keyword">new</span> AsyncQueue&lt;<span class="hljs-built_in">string</span>&gt;();
+    server.forMethodAndPath(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;/path&quot;</span>,
         TestHttpHandlers.chunkedStream(<span class="hljs-number">200</span>, {}, chunkQueue));
-    chunkQueue.<span class="hljs-keyword">add</span>(&quot;a chunk of data&quot;);
-    chunkQueue.<span class="hljs-keyword">add</span>(&quot;another one&quot;);
-    chunkQueue.<span class="hljs-keyword">close</span>();
+    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;a chunk of data&quot;</span>);
+    chunkQueue.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;another one&quot;</span>);
+    chunkQueue.close();
 </code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -162,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L563">httpserver.ts:563</a></li>
+									<li>Defined in httpserver.ts:586</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -186,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L444">httpserver.ts:444</a></li>
+									<li>Defined in httpserver.ts:465</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L467">httpserver.ts:467</a></li>
+									<li>Defined in httpserver.ts:488</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/launchdarkly/js-test-helpers/blob/2c2d4fa/src/httpserver.ts#L528">httpserver.ts:528</a></li>
+									<li>Defined in httpserver.ts:549</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -279,7 +279,7 @@
 								</div>
 								<pre><code>    const eventQueue = <span class="hljs-built_in">new</span> AsyncQueue&lt;SSEItem&gt;();
     <span class="hljs-keyword">server</span>.forMethodAndPath(&quot;get&quot;, &quot;/path&quot;,
-        TestHttpHandlers.sseStream(<span class="hljs-number">200</span>, {}, eventQueue));
+        TestHttpHandlers.sseStream(eventQueue));
     eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">type</span>: &quot;patch&quot;, data: { <span class="hljs-type">path</span>: &quot;/flags&quot;, key: &quot;x&quot; } });
     eventQueue.<span class="hljs-keyword">add</span>({ <span class="hljs-keyword">comment</span>: &quot;&quot; });
     eventQueue.<span class="hljs-keyword">close</span>();
