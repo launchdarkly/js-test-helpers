@@ -2,6 +2,9 @@
 
 All notable changes to the package will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.1.1] - 2021-09-22
+The 2.1.0 release was damaged and did not contain source files. 2.1.1 is a rerelease containing the same functionality.
+
 ## [2.1.0] - 2021-09-22
 ### Added:
 - You can optionally specify a port for an HTTP server to listen on, instead of letting it automatically pick a port.
