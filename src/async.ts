@@ -2,6 +2,80 @@ import { EventEmitter } from "events";
 import { Stream } from "stream";
 
 /**
+ * An error that can be thrown by {@link failOnTimeout}.
+ */
+export class TimeoutError extends Error {
+  constructor(message?: string) { super(message || 'timed out'); }
+};
+
+/**
+ * An error that can be thrown by {@link failOnResolve}.
+ */
+export class UnexpectedResolveError extends Error {
+  constructor(message?: string) { super(message || 'promise resolved that was expected not to resolve'); }
+}
+
+/**
+ * Causes a rejection if the given promise resolves before the timeout elapses.
+ * <p>
+ * If the original promise resolves within the timeout, the new promise rejects with an
+ * {@link UnexpectedResolveError}. If the original promise rejects within the timeout, the new promise
+ * rejects with the same result. Otherwise, the new promise resolves with no value.
+ * 
+ * @param promise any promise
+ * @param timeoutMilliseconds how long to wait
+ * @param failureMessage optional message that will be included in the UnexpectedResolveError
+ * @returns a promise that resolves only if the original promise neither resolved nor rejected
+ */
+export function failOnResolve<T>(promise: Promise<T>, timeoutMilliseconds: number, failureMessage?: string): Promise<void> {
+  let timer;
+  return Promise.race([
+    (async () => {
+      await promise;
+      clearTimeout(timer);
+      throw new UnexpectedResolveError(failureMessage);
+    })(),
+    new Promise<void>((resolve, reject) => {
+      timer = setTimeout(() => {
+        resolve();
+      }, timeoutMilliseconds)
+    }),
+  ]);
+}
+
+/**
+ * Causes a rejection if the timeout elapses before the given promise resolves.
+ * <p>
+ * If the original promise resolves or rejects within the timeout, the new promise resolves or rejects with the
+ * same result. If the timeout elapses first, the new promise rejects with a {@link TimeoutError}.
+ * <p>
+ * Test frameworks such as Jest also allow you to set an overall timeout for a test. The difference between
+ * doing that and using failOnTimeout is that failOnTimeout allows you to be more specific about which step
+ * in the test has the timing requirement, and also allows you to customize the failure message to provide better
+ * clues to what failed (since the stacktrace may not be useful in async code).
+ *
+ * @param promise any promise
+ * @param timeoutMilliseconds how long to wait
+ * @param failureMessage optional message that will be included in the TimeoutError
+ * @returns a promise that behaves the same as the original promise unless a timeout occurs
+ */
+export function failOnTimeout<T>(promise: Promise<T>, timeoutMilliseconds: number, failureMessage?: string): Promise<T> {
+  let timer;
+  return Promise.race([
+    (async () => {
+      const result = await promise;
+      clearTimeout(timer);
+      return result;
+    })(),
+    new Promise<T>((resolve, reject) => {
+      timer = setTimeout(() => {
+        reject(new TimeoutError(failureMessage));
+      }, timeoutMilliseconds)
+    }),
+  ]);
+}
+
+/**
  * Converts a function whose last parameter is a Node-style callback `(err, result)` into a function
  * with one fewer argument that returns a Promise.
  *
