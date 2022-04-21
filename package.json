@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/launchdarkly/js-test-helpers",
   "dependencies": {
-    "selfsigned": "^1.10.11"
+    "selfsigned": "^2.0.1"
   },
   "engines": {
     "node": ">= 0.6.x"
