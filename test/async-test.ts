@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
 
-import { AsyncMutex, AsyncQueue, eventSink, promisify, promisifySingle, sleepAsync, withCloseable } from "../src/async";
+import { AsyncMutex, AsyncQueue, eventSink, failOnResolve, failOnTimeout, promisify, promisifySingle, sleepAsync, TimeoutError, UnexpectedResolveError, withCloseable } from "../src/async";
 
 describe("AsyncMutex", () => {
   it("non-overlapping acquires", async () => {
@@ -295,5 +295,54 @@ describe("withCloseable", () => {
 
   it("rejects if creator returns undefined", async () => {
     await expect(withCloseable(() => undefined, async () => true)).rejects.toThrow();
+  });
+});
+
+describe("failOnResolve", () => {
+  it("resolves on timeout", async () => {
+    await failOnResolve(new Promise(() => {}), 50);
+  });
+
+  it("rejects if original promise rejected within timeout", async () => {
+    const err = new Error("sorry");
+    await expect(failOnResolve(
+      (async () => {
+        throw err;
+      })(), 50)).rejects.toThrowError(err);
+  });
+
+  it("rejects with special error if original promise resolved within timeout", async () => {
+    await expect(failOnResolve(sleepAsync(1), 50)).rejects.toThrowError(new UnexpectedResolveError());
+  });
+
+  it("can customize error message", async () => {
+    await expect(failOnResolve(sleepAsync(1), 50, "sorry")).rejects.toThrowError(new UnexpectedResolveError("sorry"));
+  });
+});
+
+describe("failOnTimeout", () => {
+  it("resolves if original promise resolved within timeout", async () => {
+    const result = await failOnTimeout(
+      (async () => {
+        await sleepAsync(1);
+        return "yes";
+      })(), 50);
+    expect(result).toEqual("yes");
+  });
+
+  it("rejects if original promise rejected within timeout", async () => {
+    const err = new Error("sorry");
+    await expect(failOnTimeout(
+      (async () => {
+        throw err;
+      })(), 50)).rejects.toThrowError(err);
+  });
+
+  it("rejects with special error on timeout", async () => {
+    await expect(failOnTimeout(new Promise(() => {}), 50)).rejects.toThrowError(new TimeoutError());
+  });
+
+  it("can customize error message", async () => {
+    await expect(failOnTimeout(new Promise(() => {}), 50, "sorry")).rejects.toThrowError(new TimeoutError("sorry"));
   });
 });
