@@ -1,564 +1,104 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>launchdarkly-js-test-helpers (2.0.0)</title>
-	<meta name="description" content="Documentation for launchdarkly-js-test-helpers (2.0.0)">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">launchdarkly-js-test-helpers (2.0.0)</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="index.html">Globals</a>
-				</li>
-			</ul>
-			<h1>launchdarkly-js-test-helpers (2.0.0)</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/asyncmutex.html" class="tsd-kind-icon">Async<wbr>Mutex</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/asyncqueue.html" class="tsd-kind-icon">Async<wbr>Queue</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/awaiter.html" class="tsd-kind-icon">Awaiter</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/promiseanderrorvaluecallback.html" class="tsd-kind-icon">Promise<wbr>And<wbr>Error<wbr>Value<wbr>Callback</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/promiseandvaluecallback.html" class="tsd-kind-icon">Promise<wbr>And<wbr>Value<wbr>Callback</a></li>
-								<li class="tsd-kind-class"><a href="classes/testhttphandlers.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Handlers</a></li>
-								<li class="tsd-kind-class"><a href="classes/testhttpserver.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Server</a></li>
-								<li class="tsd-kind-class"><a href="classes/testhttpservers.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Servers</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface"><a href="interfaces/closeable.html" class="tsd-kind-icon">Closeable</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/sseitem.html" class="tsd-kind-icon">SSEItem</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/testhttpheaders.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Headers</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/testhttprequest.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Request</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias"><a href="index.html#testhttphandler" class="tsd-kind-icon">Test<wbr>Http<wbr>Handler</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="index.html#eventsink" class="tsd-kind-icon">event<wbr>Sink</a></li>
-								<li class="tsd-kind-function"><a href="index.html#promisify" class="tsd-kind-icon">promisify</a></li>
-								<li class="tsd-kind-function"><a href="index.html#promisifysingle" class="tsd-kind-icon">promisify<wbr>Single</a></li>
-								<li class="tsd-kind-function"><a href="index.html#readallstream" class="tsd-kind-icon">read<wbr>All<wbr>Stream</a></li>
-								<li class="tsd-kind-function"><a href="index.html#sleepasync" class="tsd-kind-icon">sleep<wbr>Async</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#withcloseable" class="tsd-kind-icon">with<wbr>Closeable</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="testhttphandler" class="tsd-anchor"></a>
-					<h3>Test<wbr>Http<wbr>Handler</h3>
-					<div class="tsd-signature tsd-kind-icon">Test<wbr>Http<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/testhttprequest.html" class="tsd-signature-type">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in httpserver.ts:52</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A function that provides a response for <a href="classes/testhttpserver.html">TestHttpServer</a>. May be synchronous or async.</p>
-						</div>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="eventsink" class="tsd-anchor"></a>
-					<h3>event<wbr>Sink</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">event<wbr>Sink<span class="tsd-signature-symbol">(</span>emitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/asyncqueue.html" class="tsd-signature-type">AsyncQueue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:75</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates an <a href="classes/asyncqueue.html">AsyncQueue</a> that will receive events. The value of each queue item is the value
-									associated with the event, or an array if there were multiple values.</p>
-								</div>
-								<pre><code>    <span class="hljs-keyword">const</span> receivedErrors = eventSink(client, <span class="hljs-string">&quot;error&quot;</span>);
-    <span class="hljs-keyword">const</span> firstError = <span class="hljs-built_in">await</span> receivedErrors.<span class="hljs-keyword">take</span>();
-    <span class="hljs-keyword">const</span> secondError = <span class="hljs-built_in">await</span> receivedErrors.<span class="hljs-keyword">take</span>();
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>LaunchDarkly JavaScript Test Helpers (2.2.0)</title><meta name="description" content="Documentation for LaunchDarkly JavaScript Test Helpers (2.2.0)"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">LaunchDarkly JavaScript Test Helpers (2.2.0)</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>LaunchDarkly JavaScript Test Helpers (2.2.0)</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><section class="tsd-panel-group tsd-index-group"><h2>Index</h2><section class="tsd-panel tsd-index-panel"><div class="tsd-index-content"><section class="tsd-index-section "><h3>Classes</h3><ul class="tsd-index-list"><li class="tsd-kind-class"><a href="classes/AsyncMutex.html" class="tsd-kind-icon">Async<wbr/>Mutex</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/AsyncQueue.html" class="tsd-kind-icon">Async<wbr/>Queue</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/PromiseAndErrorValueCallback.html" class="tsd-kind-icon">Promise<wbr/>And<wbr/>Error<wbr/>Value<wbr/>Callback</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/PromiseAndValueCallback.html" class="tsd-kind-icon">Promise<wbr/>And<wbr/>Value<wbr/>Callback</a></li><li class="tsd-kind-class"><a href="classes/TestHttpHandlers.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Handlers</a></li><li class="tsd-kind-class"><a href="classes/TestHttpServer.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Server</a></li><li class="tsd-kind-class"><a href="classes/TestHttpServers.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Servers</a></li><li class="tsd-kind-class"><a href="classes/TimeoutError.html" class="tsd-kind-icon">Timeout<wbr/>Error</a></li><li class="tsd-kind-class"><a href="classes/UnexpectedResolveError.html" class="tsd-kind-icon">Unexpected<wbr/>Resolve<wbr/>Error</a></li></ul></section><section class="tsd-index-section "><h3>Interfaces</h3><ul class="tsd-index-list"><li class="tsd-kind-interface"><a href="interfaces/Closeable.html" class="tsd-kind-icon">Closeable</a></li><li class="tsd-kind-interface"><a href="interfaces/SSEItem.html" class="tsd-kind-icon">SSEItem</a></li><li class="tsd-kind-interface"><a href="interfaces/TestHttpHeaders.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Headers</a></li><li class="tsd-kind-interface"><a href="interfaces/TestHttpRequest.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Request</a></li></ul></section><section class="tsd-index-section "><h3>Type aliases</h3><ul class="tsd-index-list"><li class="tsd-kind-type-alias"><a href="index.html#TestHttpHandler" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Handler</a></li></ul></section><section class="tsd-index-section "><h3>Functions</h3><ul class="tsd-index-list"><li class="tsd-kind-function"><a href="index.html#eventSink" class="tsd-kind-icon">event<wbr/>Sink</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#failOnResolve" class="tsd-kind-icon">fail<wbr/>On<wbr/>Resolve</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#failOnTimeout" class="tsd-kind-icon">fail<wbr/>On<wbr/>Timeout</a></li><li class="tsd-kind-function"><a href="index.html#promisify" class="tsd-kind-icon">promisify</a></li><li class="tsd-kind-function"><a href="index.html#promisifySingle" class="tsd-kind-icon">promisify<wbr/>Single</a></li><li class="tsd-kind-function"><a href="index.html#readAllStream" class="tsd-kind-icon">read<wbr/>All<wbr/>Stream</a></li><li class="tsd-kind-function"><a href="index.html#sleepAsync" class="tsd-kind-icon">sleep<wbr/>Async</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#withCloseable" class="tsd-kind-icon">with<wbr/>Closeable</a></li></ul></section></div></section></section><section class="tsd-panel-group tsd-member-group "><h2>Type aliases</h2><section class="tsd-panel tsd-member tsd-kind-type-alias"><a id="TestHttpHandler" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Test<wbr/>Http<wbr/>Handler<a href="#TestHttpHandler" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">Test<wbr/>Http<wbr/>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/TestHttpRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">http.ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="interfaces/TestHttpRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">TestHttpRequest</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">http.ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div><aside class="tsd-sources"><ul><li>Defined in httpserver.ts:52</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>A function that provides a response for <a href="classes/TestHttpServer.html">TestHttpServer</a>. May be synchronous or async.</p>
+</div></div></section></section><section class="tsd-panel-group tsd-member-group "><h2>Functions</h2><section class="tsd-panel tsd-member tsd-kind-function"><a id="eventSink" class="tsd-anchor"></a><h3 class="tsd-anchor-link">event<wbr/>Sink<a href="#eventSink" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">event<wbr/>Sink<span class="tsd-signature-symbol">(</span>emitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/AsyncQueue.html" class="tsd-signature-type" data-tsd-kind="Class">AsyncQueue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:149</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Creates an <a href="classes/AsyncQueue.html">AsyncQueue</a> that will receive events. The value of each queue item is the value
+associated with the event, or an array if there were multiple values.</p>
+</div><div><pre><code><span class="hl-0">    </span><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">receivedErrors</span><span class="hl-0"> = </span><span class="hl-3">eventSink</span><span class="hl-0">(</span><span class="hl-4">client</span><span class="hl-0">, </span><span class="hl-5">&quot;error&quot;</span><span class="hl-0">);</span><br/><span class="hl-0">    </span><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">firstError</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-4">receivedErrors</span><span class="hl-0">.</span><span class="hl-3">take</span><span class="hl-0">();</span><br/><span class="hl-0">    </span><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">secondError</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-4">receivedErrors</span><span class="hl-0">.</span><span class="hl-3">take</span><span class="hl-0">();</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>emitter: <span class="tsd-signature-type">EventEmitter</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  An event emitter.</p>
-									</div>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The event name.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="classes/asyncqueue.html" class="tsd-signature-type">AsyncQueue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  A Promise that is resolved the first time the event is raised. It will contain the value that
-							was provided with the event, if any-- or, if there were multiple values, an array of them.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="promisify" class="tsd-anchor"></a>
-					<h3>promisify</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">promisify<span class="tsd-signature-symbol">(</span>functionWithErrorAndValueCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:24</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Converts a function whose last parameter is a Node-style callback <code>(err, result)</code> into a function
-									with one fewer argument that returns a Promise.</p>
-								</div>
-								<p>This is equivalent to <code>util.promisify</code>, but since Node 6 does not provide <code>promisify</code>, it is
-									reimplemented here for projects that need to support Node 6. Note that it currently does not
-								type-check the arguments.</p>
-								<pre><code>    <span class="hljs-keyword">function</span> some<span class="hljs-constructor">Function(<span class="hljs-params">param1</span>, <span class="hljs-params">param2</span>, <span class="hljs-params">callback</span>)</span> { callback(err, result); }
-    var result = await promisify(someFunction)(param1, param2);
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>emitter: <span class="tsd-signature-type">EventEmitter</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  An event emitter.</p>
+</div></div></li><li><h5>name: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  The event name.</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <a href="classes/AsyncQueue.html" class="tsd-signature-type" data-tsd-kind="Class">AsyncQueue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  A Promise that is resolved the first time the event is raised. It will contain the value that
+  was provided with the event, if any-- or, if there were multiple values, an array of them.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter"><a id="failOnResolve" class="tsd-anchor"></a><h3 class="tsd-anchor-link">fail<wbr/>On<wbr/>Resolve<a href="#failOnResolve" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter"><li class="tsd-signature tsd-kind-icon">fail<wbr/>On<wbr/>Resolve<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>promise<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span>, timeoutMilliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, failureMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:30</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Causes a rejection if the given promise resolves before the timeout elapses.</p>
+<p>
+If the original promise resolves within the timeout, the new promise rejects with an
+<a href="classes/UnexpectedResolveError.html">UnexpectedResolveError</a>. If the original promise rejects within the timeout, the new promise
+rejects with the same result. Otherwise, the new promise resolves with no value.</div></div><h4 class="tsd-type-parameters-title">Type parameters</h4><ul class="tsd-type-parameters"><li><h4>T</h4></li></ul><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>promise: <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>any promise</p>
+</div></div></li><li><h5>timeoutMilliseconds: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>how long to wait</p>
+</div></div></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> failureMessage: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>optional message that will be included in the UnexpectedResolveError</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>a promise that resolves only if the original promise neither resolved nor rejected</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter"><a id="failOnTimeout" class="tsd-anchor"></a><h3 class="tsd-anchor-link">fail<wbr/>On<wbr/>Timeout<a href="#failOnTimeout" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter"><li class="tsd-signature tsd-kind-icon">fail<wbr/>On<wbr/>Timeout<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>promise<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span>, timeoutMilliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, failureMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:62</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Causes a rejection if the timeout elapses before the given promise resolves.</p>
+<p>
+If the original promise resolves or rejects within the timeout, the new promise resolves or rejects with the
+same result. If the timeout elapses first, the new promise rejects with a <a href="classes/TimeoutError.html">TimeoutError</a>.
+<p>
+Test frameworks such as Jest also allow you to set an overall timeout for a test. The difference between
+doing that and using failOnTimeout is that failOnTimeout allows you to be more specific about which step
+in the test has the timing requirement, and also allows you to customize the failure message to provide better
+clues to what failed (since the stacktrace may not be useful in async code).</div></div><h4 class="tsd-type-parameters-title">Type parameters</h4><ul class="tsd-type-parameters"><li><h4>T</h4></li></ul><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>promise: <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>any promise</p>
+</div></div></li><li><h5>timeoutMilliseconds: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>how long to wait</p>
+</div></div></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> failureMessage: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>optional message that will be included in the TimeoutError</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>a promise that behaves the same as the original promise unless a timeout occurs</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="promisify" class="tsd-anchor"></a><h3 class="tsd-anchor-link">promisify<a href="#promisify" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">promisify<span class="tsd-signature-symbol">(</span>functionWithErrorAndValueCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:98</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Converts a function whose last parameter is a Node-style callback <code>(err, result)</code> into a function
+with one fewer argument that returns a Promise.</p>
+</div><div><p>This is equivalent to <code>util.promisify</code>, but since Node 6 does not provide <code>promisify</code>, it is
+reimplemented here for projects that need to support Node 6. Note that it currently does not
+type-check the arguments.</p>
+<pre><code><span class="hl-0">    </span><span class="hl-1">function</span><span class="hl-0"> </span><span class="hl-3">someFunction</span><span class="hl-0">(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">, </span><span class="hl-4">callback</span><span class="hl-0">) { </span><span class="hl-3">callback</span><span class="hl-0">(</span><span class="hl-4">err</span><span class="hl-0">, </span><span class="hl-4">result</span><span class="hl-0">); }</span><br/><span class="hl-0">    </span><span class="hl-1">var</span><span class="hl-0"> </span><span class="hl-4">result</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">promisify</span><span class="hl-0">(</span><span class="hl-4">someFunction</span><span class="hl-0">)(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">);</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>functionWithErrorAndValueCallback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  An asynchronously implemented function whose last parameter is an error-and-value callback.</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
-								function calls its callback with no error <code>(null, returnValue)</code>, or rejected if it was called
-							with an error (or if the original function threw an exception).</p>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-signature">
-									<ul class="tsd-signatures tsd-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<h4 class="tsd-parameters-title">Parameters</h4>
-											<ul class="tsd-parameters">
-												<li>
-													<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-												</li>
-											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="promisifysingle" class="tsd-anchor"></a>
-					<h3>promisify<wbr>Single</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">promisify<wbr>Single<span class="tsd-signature-symbol">(</span>functionWithSingleValueCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:48</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Similar to <a href="index.html#promisify">promisify</a>, but for functions whose callback takes only a single parameter <code>(result)</code>
-									instead of the typical Node style <code>(err, result)</code>.</p>
-								</div>
-								<pre><code>    <span class="hljs-keyword">function</span> some<span class="hljs-constructor">Function(<span class="hljs-params">param1</span>, <span class="hljs-params">param2</span>, <span class="hljs-params">callback</span>)</span> { callback(result); }
-    var result = await promisify(someFunction)(param1, param2);
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>functionWithErrorAndValueCallback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  An asynchronously implemented function whose last parameter is an error-and-value callback.</p>
+</div></div><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
+  function calls its callback with no error <code>(null, returnValue)</code>, or rejected if it was called
+  with an error (or if the original function threw an exception).</p>
+</div><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Converts a function whose last parameter is a Node-style callback <code>(err, result)</code> into a function
+with one fewer argument that returns a Promise.</p>
+</div><div><p>This is equivalent to <code>util.promisify</code>, but since Node 6 does not provide <code>promisify</code>, it is
+reimplemented here for projects that need to support Node 6. Note that it currently does not
+type-check the arguments.</p>
+<pre><code><span class="hl-0">    </span><span class="hl-1">function</span><span class="hl-0"> </span><span class="hl-3">someFunction</span><span class="hl-0">(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">, </span><span class="hl-4">callback</span><span class="hl-0">) { </span><span class="hl-3">callback</span><span class="hl-0">(</span><span class="hl-4">err</span><span class="hl-0">, </span><span class="hl-4">result</span><span class="hl-0">); }</span><br/><span class="hl-0">    </span><span class="hl-1">var</span><span class="hl-0"> </span><span class="hl-4">result</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">promisify</span><span class="hl-0">(</span><span class="hl-4">someFunction</span><span class="hl-0">)(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">);</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>functionWithSingleValueCallback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  An asynchronously implemented function whose last parameter is a single-value callback.</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
-							function calls its callback with a value, or rejected if the original function threw an exception.</p>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-signature">
-									<ul class="tsd-signatures tsd-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<h4 class="tsd-parameters-title">Parameters</h4>
-											<ul class="tsd-parameters">
-												<li>
-													<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-												</li>
-											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="readallstream" class="tsd-anchor"></a>
-					<h3>read<wbr>All<wbr>Stream</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">read<wbr>All<wbr>Stream<span class="tsd-signature-symbol">(</span>stream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Stream</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:157</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Fully reads a stream.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>stream: <span class="tsd-signature-type">Stream</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The stream to read.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  A Promise that is resolved with the full content.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="sleepasync" class="tsd-anchor"></a>
-					<h3>sleep<wbr>Async</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">sleep<wbr>Async<span class="tsd-signature-symbol">(</span>milliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:179</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a Promise based on <code>setTimeout()</code>.</p>
-								</div>
-								<pre><code>    await sleepAsync(<span class="hljs-number">5000</span>)<span class="hljs-comment">;</span>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
+  function calls its callback with no error <code>(null, returnValue)</code>, or rejected if it was called
+  with an error (or if the original function threw an exception).</p>
+</div></li></ul></li></ul></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="promisifySingle" class="tsd-anchor"></a><h3 class="tsd-anchor-link">promisify<wbr/>Single<a href="#promisifySingle" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">promisify<wbr/>Single<span class="tsd-signature-symbol">(</span>functionWithSingleValueCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:122</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Similar to <a href="index.html#promisify">promisify</a>, but for functions whose callback takes only a single parameter <code>(result)</code>
+instead of the typical Node style <code>(err, result)</code>.</p>
+</div><div><pre><code><span class="hl-0">    </span><span class="hl-1">function</span><span class="hl-0"> </span><span class="hl-3">someFunction</span><span class="hl-0">(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">, </span><span class="hl-4">callback</span><span class="hl-0">) { </span><span class="hl-3">callback</span><span class="hl-0">(</span><span class="hl-4">result</span><span class="hl-0">); }</span><br/><span class="hl-0">    </span><span class="hl-1">var</span><span class="hl-0"> </span><span class="hl-4">result</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">promisify</span><span class="hl-0">(</span><span class="hl-4">someFunction</span><span class="hl-0">)(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">);</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>milliseconds: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The length of the delay.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  A Promise that is resolved after the delay. It is never rejected.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="withcloseable" class="tsd-anchor"></a>
-					<h3>with<wbr>Closeable</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">with<wbr>Closeable&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>entityOrCreateFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span>, asyncCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in async.ts:212</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Ensures that an object&quot;s close() method is called after executing a callback, even if an error occurs.</p>
-								</div>
-								<pre><code>    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(<span class="hljs-params">myExistingObject</span>, <span class="hljs-params">async</span> <span class="hljs-params">o</span> =&gt; <span class="hljs-params">doSomething</span>(<span class="hljs-params">o</span>)</span>);
-    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(()</span> =&gt; make<span class="hljs-constructor">NewObject()</span>, async<span class="hljs-function"> <span class="hljs-params">o</span> =&gt;</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Something(<span class="hljs-params">o</span>)</span>);
-    await <span class="hljs-keyword">with</span><span class="hljs-constructor">Closeable(<span class="hljs-params">async</span> ()</span> =&gt; await make<span class="hljs-constructor">ObjectAsync()</span>, async<span class="hljs-function"> <span class="hljs-params">o</span> =&gt;</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Something(<span class="hljs-params">o</span>)</span>);
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>functionWithSingleValueCallback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  An asynchronously implemented function whose last parameter is a single-value callback.</p>
+</div></div><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
+  function calls its callback with a value, or rejected if the original function threw an exception.</p>
+</div><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Similar to <a href="index.html#promisify">promisify</a>, but for functions whose callback takes only a single parameter <code>(result)</code>
+instead of the typical Node style <code>(err, result)</code>.</p>
+</div><div><pre><code><span class="hl-0">    </span><span class="hl-1">function</span><span class="hl-0"> </span><span class="hl-3">someFunction</span><span class="hl-0">(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">, </span><span class="hl-4">callback</span><span class="hl-0">) { </span><span class="hl-3">callback</span><span class="hl-0">(</span><span class="hl-4">result</span><span class="hl-0">); }</span><br/><span class="hl-0">    </span><span class="hl-1">var</span><span class="hl-0"> </span><span class="hl-4">result</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">promisify</span><span class="hl-0">(</span><span class="hl-4">someFunction</span><span class="hl-0">)(</span><span class="hl-4">param1</span><span class="hl-0">, </span><span class="hl-4">param2</span><span class="hl-0">);</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/closeable.html" class="tsd-signature-type">Closeable</a></h4>
-								</li>
-								<li>
-									<h4>U</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entityOrCreateFn: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  Either the object itself, or a function (sync or async) that will create it. If this is null or
-										undefined, you will receive a rejected Promise.</p>
-									</div>
-								</li>
-								<li>
-									<h5>asyncCallback: <span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  An async function to execute with the object as a parameter.</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>entity: <span class="tsd-signature-type">T</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>  A Promise that resolves with the return value of the callback.</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals current ">
-						<a href="index.html"><em>Globals</em></a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="classes/asyncmutex.html" class="tsd-kind-icon">Async<wbr>Mutex</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/asyncqueue.html" class="tsd-kind-icon">Async<wbr>Queue</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/awaiter.html" class="tsd-kind-icon">Awaiter</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/promiseanderrorvaluecallback.html" class="tsd-kind-icon">Promise<wbr>And<wbr>Error<wbr>Value<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/promiseandvaluecallback.html" class="tsd-kind-icon">Promise<wbr>And<wbr>Value<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/testhttphandlers.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Handlers</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/testhttpserver.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Server</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/testhttpservers.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Servers</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/closeable.html" class="tsd-kind-icon">Closeable</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/sseitem.html" class="tsd-kind-icon">SSEItem</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/testhttpheaders.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Headers</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/testhttprequest.html" class="tsd-kind-icon">Test<wbr>Http<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="index.html#testhttphandler" class="tsd-kind-icon">Test<wbr>Http<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#eventsink" class="tsd-kind-icon">event<wbr>Sink</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#promisify" class="tsd-kind-icon">promisify</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#promisifysingle" class="tsd-kind-icon">promisify<wbr>Single</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#readallstream" class="tsd-kind-icon">read<wbr>All<wbr>Stream</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#sleepasync" class="tsd-kind-icon">sleep<wbr>Async</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="index.html#withcloseable" class="tsd-kind-icon">with<wbr>Closeable</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  An equivalent function that returns a Promise. The Promise will be resolved if the original
+  function calls its callback with a value, or rejected if the original function threw an exception.</p>
+</div></li></ul></li></ul></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="readAllStream" class="tsd-anchor"></a><h3 class="tsd-anchor-link">read<wbr/>All<wbr/>Stream<a href="#readAllStream" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">read<wbr/>All<wbr/>Stream<span class="tsd-signature-symbol">(</span>stream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Stream</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:231</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Fully reads a stream.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>stream: <span class="tsd-signature-type">Stream</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  The stream to read.</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  A Promise that is resolved with the full content.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="sleepAsync" class="tsd-anchor"></a><h3 class="tsd-anchor-link">sleep<wbr/>Async<a href="#sleepAsync" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">sleep<wbr/>Async<span class="tsd-signature-symbol">(</span>milliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:253</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Returns a Promise based on <code>setTimeout()</code>.</p>
+</div><div><pre><code><span class="hl-0">    </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">sleepAsync</span><span class="hl-0">(</span><span class="hl-7">5000</span><span class="hl-0">);</span>
+</code></pre>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>milliseconds: <span class="tsd-signature-type">number</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  The length of the delay.</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  A Promise that is resolved after the delay. It is never rejected.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter"><a id="withCloseable" class="tsd-anchor"></a><h3 class="tsd-anchor-link">with<wbr/>Closeable<a href="#withCloseable" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter"><li class="tsd-signature tsd-kind-icon">with<wbr/>Closeable<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>entityOrCreateFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span>, asyncCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in async.ts:286</li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Ensures that an object&quot;s close() method is called after executing a callback, even if an error occurs.</p>
+</div><div><pre><code><span class="hl-0">    </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">withCloseable</span><span class="hl-0">(</span><span class="hl-4">myExistingObject</span><span class="hl-0">, </span><span class="hl-1">async</span><span class="hl-0"> </span><span class="hl-4">o</span><span class="hl-0"> </span><span class="hl-1">=&gt;</span><span class="hl-0"> </span><span class="hl-3">doSomething</span><span class="hl-0">(</span><span class="hl-4">o</span><span class="hl-0">));</span><br/><span class="hl-0">    </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">withCloseable</span><span class="hl-0">(() </span><span class="hl-1">=&gt;</span><span class="hl-0"> </span><span class="hl-3">makeNewObject</span><span class="hl-0">(), </span><span class="hl-1">async</span><span class="hl-0"> </span><span class="hl-4">o</span><span class="hl-0"> </span><span class="hl-1">=&gt;</span><span class="hl-0"> </span><span class="hl-3">doSomething</span><span class="hl-0">(</span><span class="hl-4">o</span><span class="hl-0">));</span><br/><span class="hl-0">    </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">withCloseable</span><span class="hl-0">(</span><span class="hl-1">async</span><span class="hl-0"> () </span><span class="hl-1">=&gt;</span><span class="hl-0"> </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-3">makeObjectAsync</span><span class="hl-0">(), </span><span class="hl-1">async</span><span class="hl-0"> </span><span class="hl-4">o</span><span class="hl-0"> </span><span class="hl-1">=&gt;</span><span class="hl-0"> </span><span class="hl-3">doSomething</span><span class="hl-0">(</span><span class="hl-4">o</span><span class="hl-0">));</span>
+</code></pre>
+</div></div><h4 class="tsd-type-parameters-title">Type parameters</h4><ul class="tsd-type-parameters"><li><h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/Closeable.html" class="tsd-signature-type" data-tsd-kind="Interface">Closeable</a></h4></li><li><h4>U</h4></li></ul><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>entityOrCreateFn: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  Either the object itself, or a function (sync or async) that will create it. If this is null or
+  undefined, you will receive a rejected Promise.</p>
+</div></div></li><li><h5>asyncCallback: <span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>  An async function to execute with the object as a parameter.</p>
+</div></div><ul class="tsd-parameters"><li class="tsd-parameter-signature"><ul class="tsd-signatures tsd-kind-type-literal"><li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>entity: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">U</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>  A Promise that resolves with the return value of the callback.</p>
+</div></li></ul></section></section></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="index.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/AsyncMutex.html" class="tsd-kind-icon">Async<wbr/>Mutex</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/AsyncQueue.html" class="tsd-kind-icon">Async<wbr/>Queue</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/PromiseAndErrorValueCallback.html" class="tsd-kind-icon">Promise<wbr/>And<wbr/>Error<wbr/>Value<wbr/>Callback</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/PromiseAndValueCallback.html" class="tsd-kind-icon">Promise<wbr/>And<wbr/>Value<wbr/>Callback</a></li><li class="tsd-kind-class"><a href="classes/TestHttpHandlers.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Handlers</a></li><li class="tsd-kind-class"><a href="classes/TestHttpServer.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Server</a></li><li class="tsd-kind-class"><a href="classes/TestHttpServers.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Servers</a></li><li class="tsd-kind-class"><a href="classes/TimeoutError.html" class="tsd-kind-icon">Timeout<wbr/>Error</a></li><li class="tsd-kind-class"><a href="classes/UnexpectedResolveError.html" class="tsd-kind-icon">Unexpected<wbr/>Resolve<wbr/>Error</a></li><li class="tsd-kind-interface"><a href="interfaces/Closeable.html" class="tsd-kind-icon">Closeable</a></li><li class="tsd-kind-interface"><a href="interfaces/SSEItem.html" class="tsd-kind-icon">SSEItem</a></li><li class="tsd-kind-interface"><a href="interfaces/TestHttpHeaders.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Headers</a></li><li class="tsd-kind-interface"><a href="interfaces/TestHttpRequest.html" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Request</a></li><li class="tsd-kind-type-alias"><a href="index.html#TestHttpHandler" class="tsd-kind-icon">Test<wbr/>Http<wbr/>Handler</a></li><li class="tsd-kind-function"><a href="index.html#eventSink" class="tsd-kind-icon">event<wbr/>Sink</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#failOnResolve" class="tsd-kind-icon">fail<wbr/>On<wbr/>Resolve</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#failOnTimeout" class="tsd-kind-icon">fail<wbr/>On<wbr/>Timeout</a></li><li class="tsd-kind-function"><a href="index.html#promisify" class="tsd-kind-icon">promisify</a></li><li class="tsd-kind-function"><a href="index.html#promisifySingle" class="tsd-kind-icon">promisify<wbr/>Single</a></li><li class="tsd-kind-function"><a href="index.html#readAllStream" class="tsd-kind-icon">read<wbr/>All<wbr/>Stream</a></li><li class="tsd-kind-function"><a href="index.html#sleepAsync" class="tsd-kind-icon">sleep<wbr/>Async</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#withCloseable" class="tsd-kind-icon">with<wbr/>Closeable</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
