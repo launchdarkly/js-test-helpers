@@ -1,6 +1,6 @@
 # LaunchDarkly JavaScript Test Helpers
 
-[![Circle CI](https://circleci.com/gh/launchdarkly/js-test-helpers/tree/master.svg?style=svg)](https://circleci.com/gh/launchdarkly/js-test-helpers/tree/master)
+[![Quality control](https://github.com/launchdarkly/js-test-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/launchdarkly/js-test-helpers/actions/workflows/ci.yml)
 
 This package centralizes some test support code that is used by LaunchDarkly's JavaScript-based SDKs (browser, Node, Electron, etc.) and that may be useful in other JS projects. It can be used to test any kind of JavaScript code as long as the tests themselves are run in Node (version 6 or higher).
 
