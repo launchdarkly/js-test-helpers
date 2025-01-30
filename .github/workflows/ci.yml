@@ -1,0 +1,68 @@
+name: Quality control
+
+on:
+  push:
+    branches: [master, 'feat/**']
+    paths-ignore:
+      - '**.md' #Do not need to run CI for markdown changes.
+  pull_request:
+    branches: [master, 'feat/**']
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis
+
+    strategy:
+      matrix:
+        version: [12.22, latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm install
+      - run: npm run build
+
+      - run: npm test
+        env:
+          JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+
+      - run: npm run lint
+        if: ${{ matrix.version == 'latest' }}
+
+      - name: dependency audit
+        run: ./scripts/better-audit.sh
+
+      - name: Upload test service logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit report
+          path: reports/junit
+
+  build-windows:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        # Node versions to run on. Oldest supported to the latest
+        version: [12.22, latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          registry-url: 'https://registry.npmjs.org'
+      - run: node --version
+      - run: npm install
+      - run: npm test
+      - run: npm run build
